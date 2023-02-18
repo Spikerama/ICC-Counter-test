@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Timer</title>
+  <style>
+    /* CSS styles */
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    .countdown-timer {
+      display: flex;
+    }
+    .countdown-timer > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 10px;
+    }
+    .countdown-timer > div > span {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="countdown-container">
+    <div class="countdown-timer">
+      <div>
+        <span class="days"></span>
+        <div>Days</div>
+      </div>
+      <div>
+        <span class="hours"></span>
+        <div>Hours</div>
+      </div>
+      <div>
+        <span class="minutes"></span>
+        <div>Minutes</div>
+      </div>
+      <div>
+        <span class="seconds"></span>
+        <div>Seconds</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code
+    const endDate = new Date('2023-04-01T00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = endDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.querySelector('.days').innerHTML = days;
+      document.querySelector('.hours').innerHTML = hours;
+      document.querySelector('.minutes').innerHTML = minutes;
+      document.querySelector('.seconds').innerHTML = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
