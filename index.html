@@ -13,14 +13,10 @@
         background-color: #121317;
       }
       .countdown-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         width: 64vmin;
         height: 28vmin;
         display: flex;
-        flex-direction: row; /* updated */
+        flex-direction: row;
         justify-content: space-around;
         padding: 1em 0;
         font-size: 16px;
@@ -77,27 +73,34 @@
           font-size: 8px;
         }
       }
+      .countdown-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     </style>
   </head>
   <body>
-    <div class="countdown-container">
+    <div class="countdown-wrapper">
       <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
-      <i class="fas fa-calendar-alt"></i>
-      <span class="num days"></span>
-      <span class="text">DAYS</span>
-      <span class="num hours"></span>
-      <span class="text">HOURS</span>
+      <div class="countdown-container">
+        <i class="fas fa-calendar-alt"></i>
+        <span class="num days"></span>
+        <span class="text">DAYS</span>
+        <span class="num hours"></span>
+        <span class="text">HOURS</span>
+      </div>
     </div>
 
     <script>
-  // JavaScript code
-  const endDate = new Date('2023-04-15T00:00:00').getTime();
+      // JavaScript code
+      const endDate = new Date("2023-04-15T00:00:00").getTime();
 
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = endDate - now;
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
     document.querySelector('.days').innerHTML = days;
