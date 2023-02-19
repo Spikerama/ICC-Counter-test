@@ -93,19 +93,19 @@
 
     <script>
       // JavaScript code
-      const endDate = new Date('2023-04-15T00:00:00').getTime();
+const endDate = new Date('2023-04-15T00:00:00').getTime();
 
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = endDate - now;
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = endDate - now;
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (
-          
-   document.querySelector('.days').innerHTML = days;
-      }
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-      setInterval(updateCountdown, 1000);
-    </script>
-  </body>
-</html>
+  document.querySelector('.days').innerHTML = days;
+  document.querySelector('.hours').innerHTML = hours;
+  document.querySelector('.minutes').innerHTML = minutes;
+}
+
+setInterval(updateCountdown, 1000);
