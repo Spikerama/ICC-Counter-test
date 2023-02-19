@@ -1,62 +1,99 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Countdown Timer</title>
-  <style>
-    /* CSS styles */
-    .countdown-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 30px;
-      font-weight: bold;
-    }
-    .countdown-timer {
-      display: flex;
-    }
-    .countdown-timer > div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: 0 10px;
-    }
-    .countdown-timer > div > span {
-      margin: 5px;
-    }
-  </style>
-</head>
-<body>
-  <h1>ICC Arbitration Jin Cheng vs AVZ</h1>
-  <div class="countdown-container">
-    <div class="countdown-timer">
-      <div>
-        <span class="days"></span>
-        <div>Days</div>
+  <head>
+    <title>Countdown to April 1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+      }
+      h1 {
+        font-size: 3rem;
+        margin-top: 3rem;
+      }
+      p {
+        font-size: 2rem;
+        margin-top: 1rem;
+      }
+      .countdown-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3rem;
+        background-color: #fff;
+        border: 2px solid #000;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+      .countdown-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        margin: 0 1.5rem;
+      }
+      .countdown-item-label {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      @media screen and (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+        .countdown-container {
+          flex-direction: column;
+          padding: 1.5rem;
+        }
+        .countdown-item {
+          margin: 1rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Countdown to April 1</h1>
+    <p>Time until the big event:</p>
+    <div class="countdown-container">
+      <div class="countdown-item">
+        <div id="days">00</div>
+        <div class="countdown-item-label">Days</div>
       </div>
-      <div>
-        <span class="hours"></span>
-        <div>Hours</div>
+      <div class="countdown-item">
+        <div id="hours">00</div>
+        <div class="countdown-item-label">Hours</div>
+      </div>
+      <div class="countdown-item">
+        <div id="minutes">00</div>
+        <div class="countdown-item-label">Minutes</div>
+      </div>
+      <div class="countdown-item">
+        <div id="seconds">00</div>
+        <div class="countdown-item-label">Seconds</div>
       </div>
     </div>
-  </div>
+    <script>
+      function countdown() {
+        const now = new Date();
+        const eventDate = new Date("April 1, 2023 00:00:00");
+        const currentTime = now.getTime();
+        const eventTime = eventDate.getTime();
+        const remTime = eventTime - currentTime;
+        const s = Math.floor(remTime / 1000);
+        const m = Math.floor(s / 60);
+        const h = Math.floor(m / 60);
+        const d = Math.floor(h / 24);
 
-  <script>
-    // JavaScript code
-    const endDate = new Date('2023-04-01T00:00:00').getTime();
+        const hours = h % 24;
+        const minutes = m % 60;
+        const seconds = s % 60;
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = endDate - now;
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-      document.querySelector('.days').innerHTML = days;
-      document.querySelector('.hours').innerHTML = hours;
-    }
-
-    setInterval(updateCountdown, 1000);
-  </script>
-</body>
-</html>
+        document.getElementById("days").textContent = d;
+        document.getElementById("hours").textContent = hours < 10 ? "0" +
