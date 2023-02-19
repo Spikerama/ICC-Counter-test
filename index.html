@@ -1,36 +1,103 @@
-<div style="border: 2px solid #4CAF50; padding: 10px; border-radius: 5px; width: 200px; margin: 0 auto;">
-  <h3 style="text-align: center; margin-top: 0;">Countdown</h3>
-  <p style="text-align: center; font-size: 24px; margin-bottom: 0;" id="countdown"></p>
-  <hr style="border: none; height: 3px; background-color: #4CAF50; margin: 0;">
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ICC Arbitration Jin Cheng vs AVZ</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background-color: #121317;
+      }
+      .countdown-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 64vmin;
+        height: 28vmin;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 1em 0;
+        font-size: 16px;
+        border-radius: 0.5em;
+        background-color: #21242b;
+        border-bottom: 10px solid #18f98f;
+      }
+      .countdown-header {
+        color: #18f98f;
+        font-size: 1.5em;
+        text-align: center;
+        padding: 0.5em 0;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      i {
+        color: #18f98f;
+        font-size: 2.5em;
+        text-align: center;
+      }
+      span.num {
+        color: #ffffff;
+        display: grid;
+        place-items: center;
+        font-weight: 600;
+        font-size: 5em;
+      }
+      span.text {
+        color: #ffffff;
+        font-size: 1em;
+        text-align: center;
+        padding: 0.7em 0;
+        font-weight: 400;
+        line-height: 0;
+      }
+      @media screen and (max-width: 1024px) {
+        .countdown-container {
+          width: 26vmin;
+          height: 26vmin;
+          font-size: 12px;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .countdown-container {
+          width: 60vw;
+          height: 30vmin;
+          font-size: 14px;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .countdown-container {
+          width: 90vw;
+          height: 25vmin;
+          font-size: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="countdown-container">
+      <h3 style="text-align: center; margin-top: 0;">Countdown</h3>
+      <p style="text-align: center; font-size: 24px; margin-bottom: 0;" id="countdown"></p>
+      <hr style="border: none; height: 3px; background-color: #4CAF50; margin: 0;">
+    </div>
 
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 1, 2024 00:00:00").getTime();
+    <script>
+      // Set the date we're counting down to
+      var countDownDate = new Date("Jan 1, 2024 00:00:00").getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+      // Update the count down every 1 second
+      var x = setInterval(function() {
 
-  // Get today's date and time
-  var now = new Date().getTime();
+        // Get today's date and time
+        var now = new Date().getTime();
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
 
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="countdown"
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 
