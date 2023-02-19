@@ -41,39 +41,39 @@
         font-size: 2.5em;
         text-align: center;
       }
-span.num.hours,
-span.num.minutes {
-  font-size: 5em;
-}
+      span.num.hours,
+      span.num.minutes {
+        font-size: 5em;
+      }
 
-span.text {
-  font-size: 1em;
-  line-height: 1;
-}
+      span.text {
+        font-size: 1em;
+        line-height: 1;
+      }
 
-@media screen and (max-width: 1024px) {
-  .countdown-container {
-    font-size: 12px;
-    width: 26vmin;
-    height: 26vmin;
-  }
-}
+      @media screen and (max-width: 1024px) {
+        .countdown-container {
+          font-size: 12px;
+          width: 26vmin;
+          height: 26vmin;
+        }
+      }
 
-@media screen and (max-width: 768px) {
-  .countdown-container {
-    font-size: 14px;
-    width: 60vw;
-    height: 30vmin;
-  }
-}
+      @media screen and (max-width: 768px) {
+        .countdown-container {
+          font-size: 14px;
+          width: 60vw;
+          height: 30vmin;
+        }
+      }
 
-@media screen and (max-width: 480px) {
-  .countdown-container {
-    font-size: 8px;
-    width: 90vw;
-    height: 25vmin;
-  }
-}
+      @media screen and (max-width: 480px) {
+        .countdown-container {
+          font-size: 8px;
+          width: 90vw;
+          height: 25vmin;
+        }
+      }
     </style>
   </head>
   <body>
@@ -89,20 +89,30 @@ span.text {
     </div>
 
     <script>
-// JavaScript code
-const endDate = new Date('2023-04-15T00:00:00').getTime();
+      // JavaScript code
+      const endDate = new Date("2023-04-15T00:00:00").getTime();
 
-function updateCountdown() {
-  const now = new Date().getTime();
-  const distance = endDate - now;
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / 1000 / 60);
 
-  document.querySelector('.days').innerHTML = days;
-  document.querySelector('.hours').innerHTML = hours;
-  document.querySelector('.minutes').innerHTML = minutes;
+document.querySelector(".days").innerHTML = days;
+document.querySelector(".hours").innerHTML = hours;
+document.querySelector(".minutes").innerHTML = minutes;
+
+if (distance < 0) {
+  clearInterval(countdown);
+  document.querySelector(".countdown-header").innerHTML = "The event is now";
+  document.querySelector(".num.days").innerHTML = "0";
+  document.querySelector(".num.hours").innerHTML = "0";
+  document.querySelector(".num.minutes").innerHTML = "0";
+  document.querySelectorAll(".text").forEach((element) => {
+    element.style.display = "none";
+  });
 }
-
-setInterval(updateCountdown, 1000);
