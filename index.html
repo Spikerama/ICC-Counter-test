@@ -85,6 +85,10 @@
       <i class="fas fa-calendar-alt"></i>
       <span class="num days"></span>
       <span class="text">DAYS</span>
+      <span class="num hours"></span>
+      <span class="text">HOURS</span>
+      <span class="num minutes"></span>
+      <span class="text">MINUTES</span>
     </div>
 
     <script>
@@ -96,11 +100,4 @@
         const distance = endDate - now;
 
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-
-        document.querySelector('.days').innerHTML = days;
-      }
-
-      setInterval(updateCountdown, 1000);
-    </script>
-  </body>
-</html>
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (
