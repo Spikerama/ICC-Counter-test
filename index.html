@@ -36,11 +36,6 @@
       background-color: #21242b;
       border-bottom: 10px solid #18f98f;
     }
-    i {
-      color: #18f98f;
-      font-size: 2.5em;
-      text-align: center;
-    }
     span.num {
       color: #ffffff;
       display: grid;
@@ -93,7 +88,6 @@
 <body>
   <div class="wrapper">
     <div class="container">
-      <i class="fas fa-calendar"></i>
       <span class="num" id="days"></span>
       <span class="text">Days</span>
     </div>
@@ -101,24 +95,24 @@
 
   <script>
     // Set the date we're counting down to
-const countDownDate = new Date("April 1, 2023").getTime();
+    const countDownDate = new Date("April 1, 2023").getTime();
 
-// Update the countdown every second
-const x = setInterval(function() {
+    // Update the countdown every second
+    const x = setInterval(function() {
 
-  // Get the current date and time
-  const now = new Date().getTime();
+      // Get the current date and time
+      const now = new Date().getTime();
 
-  // Find the distance between now and the count down date
-  const distance = countDownDate - now;
+      // Find the distance between now and the count down date
+      const distance = countDownDate - now;
 
-  // Calculate the number of days left
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      // Calculate the number of days left
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-  // Display the result in the element with id="days"
-  document.getElementById("days").innerHTML = days;
+      // Display the result in the element with id="days"
+      document.getElementById("days").innerHTML = days;
 
-  // If the count down is finished, write some text
+      // If the countdown is finished, write some text
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("days").innerHTML = "EXPIRED";
