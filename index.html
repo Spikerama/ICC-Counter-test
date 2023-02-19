@@ -37,14 +37,6 @@
         <span class="hours"></span>
         <div>Hours</div>
       </div>
-      <div>
-        <span class="minutes"></span>
-        <div>Minutes</div>
-      </div>
-      <div>
-        <span class="seconds"></span>
-        <div>Seconds</div>
-      </div>
     </div>
   </div>
 
@@ -58,13 +50,9 @@
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       document.querySelector('.days').innerHTML = days;
       document.querySelector('.hours').innerHTML = hours;
-      document.querySelector('.minutes').innerHTML = minutes;
-      document.querySelector('.seconds').innerHTML = seconds;
     }
 
     setInterval(updateCountdown, 1000);
