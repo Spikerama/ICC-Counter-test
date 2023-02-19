@@ -1,36 +1,93 @@
-<div style="border: 2px solid #4CAF50; padding: 10px; border-radius: 5px; width: 200px; margin: 0 auto;">
-  <h3 style="text-align: center; margin-top: 0;">Countdown</h3>
-  <p style="text-align: center; font-size: 24px; margin-bottom: 0;" id="countdown"></p>
-  <hr style="border: none; height: 3px; background-color: #4CAF50; margin: 0;">
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ICC Arbitration Jin Cheng vs AVZ</title>
+  <style>
+    /* CSS styles */
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background-color: #121317;
+    }
+    h1 {
+      color: #18f98f;
+      font-size: 3.5em;
+      text-align: center;
+      padding-top: 3em;
+    }
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      font-weight: bold;
+      padding-top: 2em;
+      background-color: #1b1c22;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px #18f98f;
+      margin: 50px;
+    }
+    .countdown-timer {
+      display: flex;
+    }
+    .countdown-timer > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 10px;
+    }
+    .countdown-timer > div > span {
+      margin: 5px;
+      color: #18f98f;
+      font-size: 3.5em;
+      border-bottom: 5px solid #18f98f;
+      padding-bottom: 5px;
+    }
+    .countdown-timer > div > div {
+      color: #e0e0e0;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <h1>ICC Arbitration Jin Cheng vs AVZ</h1>
+  <div class="countdown-container">
+    <div class="countdown-timer">
+      <div>
+        <span class="days"></span>
+        <div>Days</div>
+      </div>
+      <div>
+        <span class="hours"></span>
+        <div>Hours</div>
+      </div>
+    </div>
+  </div>
 
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 1, 2024 00:00:00").getTime();
+  <script>
+    // JavaScript code
+    const endDate = new Date('2023-04-01T00:00:00').getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = endDate - now;
 
-  // Get today's date and time
-  var now = new Date().getTime();
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+      document.querySelector('.days').innerHTML = days;
+      document.querySelector('.hours').innerHTML = hours;
+    }
 
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="countdown"
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
