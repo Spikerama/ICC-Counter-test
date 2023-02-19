@@ -41,14 +41,32 @@
         font-size: 2.5em;
         text-align: center;
       }
-      span.num {
+      .countdown-time {
         color: #ffffff;
         display: grid;
-        place-items: center;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
         font-weight: 600;
         font-size: 5em;
+        text-align: center;
       }
-      span.text {
+      .countdown-time span {
+        display: block;
+        line-height: 1;
+      }
+      .countdown-time .days {
+        grid-column: 1 / span 2;
+      }
+      .countdown-time .hours {
+        grid-column: 3;
+      }
+      .countdown-time .minutes {
+        grid-column: 4;
+      }
+      .countdown-time .seconds {
+        grid-column: 5;
+      }
+      .countdown-label {
         color: #ffffff;
         font-size: 1em;
         text-align: center;
@@ -56,11 +74,18 @@
         font-weight: 400;
         line-height: 0;
       }
+      .countdown-labels {
+        display: flex;
+        justify-content: space-between;
+      }
       @media screen and (max-width: 1024px) {
         .countdown-container {
           width: 26vmin;
           height: 26vmin;
           font-size: 12px;
+        }
+        .countdown-time {
+          font-size: 2.5em;
         }
       }
       @media screen and (max-width: 768px) {
@@ -69,12 +94,19 @@
           height: 30vmin;
           font-size: 14px;
         }
+        .countdown-time {
+          font-size: 3em;
+        }
       }
       @media screen and (max-width: 480px) {
         .countdown-container {
           width: 90vw;
           height: 25vmin;
           font-size: 8px;
+        }
+        .countdown-time {
+          font-size: 2em;
+          grid-template-columns: repeat(4, 1fr);
         }
       }
     </style>
