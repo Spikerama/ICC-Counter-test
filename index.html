@@ -41,32 +41,14 @@
         font-size: 2.5em;
         text-align: center;
       }
-      .countdown-time {
+      span.num {
         color: #ffffff;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
+        place-items: center;
         font-weight: 600;
         font-size: 5em;
-        text-align: center;
       }
-      .countdown-time span {
-        display: block;
-        line-height: 1;
-      }
-      .countdown-time .days {
-        grid-column: 1 / span 2;
-      }
-      .countdown-time .hours {
-        grid-column: 3;
-      }
-      .countdown-time .minutes {
-        grid-column: 4;
-      }
-      .countdown-time .seconds {
-        grid-column: 5;
-      }
-      .countdown-label {
+      span.text {
         color: #ffffff;
         font-size: 1em;
         text-align: center;
@@ -74,18 +56,11 @@
         font-weight: 400;
         line-height: 0;
       }
-      .countdown-labels {
-        display: flex;
-        justify-content: space-between;
-      }
       @media screen and (max-width: 1024px) {
         .countdown-container {
           width: 26vmin;
           height: 26vmin;
           font-size: 12px;
-        }
-        .countdown-time {
-          font-size: 2.5em;
         }
       }
       @media screen and (max-width: 768px) {
@@ -94,19 +69,12 @@
           height: 30vmin;
           font-size: 14px;
         }
-        .countdown-time {
-          font-size: 3em;
-        }
       }
       @media screen and (max-width: 480px) {
         .countdown-container {
           width: 90vw;
           height: 25vmin;
           font-size: 8px;
-        }
-        .countdown-time {
-          font-size: 2em;
-          grid-template-columns: repeat(4, 1fr);
         }
       }
     </style>
@@ -117,12 +85,6 @@
       <i class="fas fa-calendar-alt"></i>
       <span class="num days"></span>
       <span class="text">DAYS</span>
-      <span class="num hours"></span>
-      <span class="text">HOURS</span>
-      <span class="num minutes"></span>
-      <span class="text">MINUTES</span>
-      <span class="num seconds"></span>
-      <span class="text">SECONDS</span>
     </div>
 
     <script>
@@ -133,7 +95,7 @@
         const now = new Date().getTime();
         const distance = endDate - now;
 
-        const days = Math.floor(distance / (1000 * 60 * 24));
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
         document.querySelector('.days').innerHTML = days;
       }
