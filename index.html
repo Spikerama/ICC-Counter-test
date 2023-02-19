@@ -97,10 +97,10 @@
     // Set the date we're counting down to
     const countDownDate = new Date("April 1, 2023").getTime();
 
-    // Update the countdown every second
+    // Update the countdown every day
     const x = setInterval(function() {
 
-      // Get the current date and time
+      // Get the current date
       const now = new Date().getTime();
 
       // Find the distance between now and the count down date
@@ -112,9 +112,4 @@
       // Display the result in the element with id="days"
       document.getElementById("days").innerHTML = days;
 
-      // If the countdown is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("days").innerHTML = "EXPIRED";
-  }
-}, 1000);
+     
