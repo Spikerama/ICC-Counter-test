@@ -37,14 +37,19 @@
         font-size: 2.5em;
         text-align: center;
       }
-      span.num {
+      .counter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .counter .num {
         color: #ffffff;
         display: grid;
         place-items: center;
         font-weight: 600;
         font-size: 5em;
       }
-      span.text {
+      .counter .text {
         color: #ffffff;
         font-size: 1em;
         text-align: center;
@@ -73,34 +78,32 @@
           font-size: 8px;
         }
       }
-      .countdown-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
     </style>
   </head>
   <body>
-    <div class="countdown-wrapper">
-      <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
-      <div class="countdown-container">
+    <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
+    <div class="countdown-container">
+      <div class="counter">
         <i class="fas fa-calendar-alt"></i>
         <span class="num days"></span>
         <span class="text">DAYS</span>
+      </div>
+      <div class="counter">
+        <i class="fas fa-clock"></i>
         <span class="num hours"></span>
         <span class="text">HOURS</span>
       </div>
     </div>
 
     <script>
-      // JavaScript code
-      const endDate = new Date("2023-04-15T00:00:00").getTime();
+  // JavaScript code
+  const endDate = new Date("2023-04-15T00:00:00").getTime();
 
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = endDate - now;
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = endDate - now;
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
     document.querySelector('.days').innerHTML = days;
