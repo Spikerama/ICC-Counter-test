@@ -12,9 +12,13 @@
       body {
         background-color: #121317;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
+      }
+      .countdown-container-wrapper {
+        text-align: center;
       }
       .countdown-container {
         width: 64vmin;
@@ -87,15 +91,16 @@
   </head>
   <body>
     <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
-    <div class="countdown-container">
-      <div class="counter">
-        <i class="fas fa-calendar-alt"></i>
-        <span class="num days"></span>
-        <span class="text">DAYS</span>
-      </div>
-      <div class="counter">
-        <i class="fas fa-clock"></i>
-        <span class="num hours"></span>
+    <div class="countdown-container-wrapper">
+      <div class="countdown-container">
+        <div class="counter">
+          <i class="fas fa-calendar-alt"></i>
+          <span class="num days"></span>
+          <span class="text">DAYS</span>
+        </div>
+        <div class="counter">
+          <i class="fas fa-clock"></i>
+          <span class=""num hours"></span>
         <span class="text">HOURS</span>
       </div>
     </div>
