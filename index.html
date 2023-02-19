@@ -35,6 +35,7 @@
         padding: 0.5em 0;
         font-weight: 600;
         text-transform: uppercase;
+        margin-bottom: 1em;
       }
       i {
         color: #18f98f;
@@ -100,12 +101,12 @@
     </div>
 
     <script>
-  // JavaScript code
-  const endDate = new Date("2023-04-15T00:00:00").getTime();
+      // JavaScript code
+      const endDate = new Date("2023-04-15T00:00:00").getTime();
 
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = endDate - now;
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
