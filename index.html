@@ -33,10 +33,6 @@
         <span class="days"></span>
         <div>Days</div>
       </div>
-      <div>
-        <span class="hours"></span>
-        <div>Hours</div>
-      </div>
     </div>
   </div>
 
@@ -49,10 +45,8 @@
       const distance = endDate - now;
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
       document.querySelector('.days').innerHTML = days;
-      document.querySelector('.hours').innerHTML = hours;
     }
 
     setInterval(updateCountdown, 1000);
