@@ -13,65 +13,98 @@
     body {
       background-color: #121317;
     }
-    h1 {
-      color: #18f98f;
-      font-size: 3.5em;
-      text-align: center;
-      padding-top: 3em;
-    }
-    .countdown-container {
+    .wrapper {
+      position: absolute;
+      width: 80vw;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 30px;
-      font-weight: bold;
-      padding-top: 2em;
-      background-color: #1b1c22;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 20px #18f98f;
-      margin: 50px;
+      justify-content: space-around;
+      gap: 10px;
     }
-    .countdown-timer {
-      display: flex;
-    }
-    .countdown-timer > div {
+    .container {
+      width: 28vmin;
+      height: 28vmin;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: 0 10px;
+      justify-content: space-around;
+      padding: 1em 0;
+      position: relative;
+      font-size: 16px;
+      border-radius: 0.5em;
+      background-color: #21242b;
+      border-bottom: 10px solid #18f98f;
     }
-    .countdown-timer > div > span {
-      margin: 5px;
+    i {
       color: #18f98f;
-      font-size: 3.5em;
-      border-bottom: 5px solid #18f98f;
-      padding-bottom: 5px;
+      font-size: 2.5em;
+      text-align: center;
     }
-    .countdown-timer > div > div {
+    span.num {
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+      font-size: 3em;
+    }
+    span.text {
       color: #e0e0e0;
-      font-size: 1.5em;
-      font-weight: bold;
-      text-transform: uppercase;
+      font-size: 1em;
+      text-align: center;
+      padding: 0.7em 0;
+      font-weight: 400;
+      line-height: 0;
+    }
+    @media screen and (max-width: 1024px) {
+      .wrapper {
+        width: 85vw;
+      }
+      .container {
+        height: 26vmin;
+        width: 26vmin;
+        font-size: 12px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .wrapper {
+        width: 90vw;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+      .container {
+        width: calc(50% - 40px);
+        height: 30vmin;
+        font-size: 14px;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .wrapper {
+        gap: 15px;
+      }
+      .container {
+        width: 100%;
+        height: 25vmin;
+        font-size: 8px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>ICC Arbitration Jin Cheng vs AVZ</h1>
-  <div class="countdown-container">
-    <div class="countdown-timer">
-      <div>
-        <span class="days"></span>
-        <div>Days</div>
-      </div>
-      <div>
-        <span class="hours"></span>
-        <div>Hours</div>
-      </div>
+  <div class="wrapper">
+    <div class="container">
+      <i class="fas fa-calendar-alt"></i>
+      <span class="num days">00</span>
+      <span class="text">DAYS</span>
+    </div>
+    <div class="container">
+      <i class="fas fa-clock"></i>
+      <span class="num hours">00</span>
+      <span class="text">HOURS</span>
     </div>
   </div>
 
+  <script src="https://kit.fontawesome.com/7f02a8318a.js" crossorigin="anonymous"></script>
   <script>
     // JavaScript code
     const endDate = new Date('2023-04-01T00:00:00').getTime();
@@ -80,14 +113,4 @@
       const now = new Date().getTime();
       const distance = endDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-      document.querySelector('.days').innerHTML = days;
-      document.querySelector('.hours').innerHTML = hours;
-    }
-
-    setInterval(updateCountdown, 1000);
-  </script>
-</body>
-</html>
+      const days = Math
