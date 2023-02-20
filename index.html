@@ -51,6 +51,8 @@
       .countdown-numbers {
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
       }
       .counter {
         display: flex;
@@ -64,12 +66,13 @@
         place-items: center;
         font-weight: 600;
         font-size: 5em;
+        margin-bottom: 0.5em;
       }
       .counter .text {
         color: #ffffff;
         font-size: 1em;
         text-align: center;
-        padding: 0.7em 0;
+        padding: 0.5em 0;
         font-weight: 400;
         line-height: 0;
       }
@@ -83,14 +86,14 @@
       @media screen and (max-width: 768px) {
         .countdown-container {
           width: 60vw;
-          height: 80vmin;
+          height: 80vh;
           font-size: 14px;
         }
       }
       @media screen and (max-width: 480px) {
         .countdown-container {
           width: 100%;
-          height: auto;
+          height: 100%;
           font-size: 6vw;
           border-radius: 0;
           border: none;
