@@ -1,98 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ICC Arbitration ZIJIN vs AVZ</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
       body {
-        background-color: #121317;
+        background-color: #f7f7f7;
+        font-family: Arial, sans-serif;
+      }
+      .countdown-container-wrapper {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
       }
-      .countdown-container-wrapper {
-        text-align: center;
-      }
       .countdown-container {
-        width: 68vmin;
-        height: 32vmin;
+        background-color: #ffffff;
+        border-radius: 4px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        padding: 1em 0;
-        font-size: 16px;
-        border-radius: 0.5em;
-        background-color: #21242b;
-        border-bottom: 10px solid #18f98f;
+        padding: 20px;
       }
       .countdown-header {
-        color: #18f98f;
-        font-size: 1.2em;
+        font-size: 24px;
+        font-weight: bold;
         text-align: center;
-        padding: 0.5em 0;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 1em;
-      }
-      i {
-        color: #18f98f;
-        font-size: 2.5em;
-        text-align: center;
+        margin-bottom: 20px;
       }
       .countdown-numbers {
         display: flex;
         justify-content: center;
-      }
-      .counter {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        margin: 0 1em;
+        margin-bottom: 20px;
       }
-      .counter .num {
-        color: #ffffff;
-        display: grid;
-        place-items: center;
-        font-weight: 600;
-        font-size: 5em;
-      }
-      .counter .text {
-        color: #ffffff;
-        font-size: 1em;
+      .countdown-numbers .num {
+        font-size: 48px;
+        font-weight: bold;
         text-align: center;
-        padding: 0.7em 0;
-        font-weight: 400;
-        line-height: 0;
+        margin: 0 10px;
       }
-      @media screen and (max-width: 1024px) {
-        .countdown-container {
-          width: 26vmin;
-          height: 26vmin;
-          font-size: 12px;
+      .countdown-numbers .text {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+      }
+      @media only screen and (max-width: 768px) {
+        .countdown-numbers {
+          flex-direction: column;
+          align-items: center;
         }
-      }
-      @media screen and (max-width: 768px) {
-        .countdown-container {
-          width: 60vw;
-          height: 30vmin;
-          font-size: 14px;
-        }
-      }
-      @media screen and (max-width: 480px) {
-        .countdown-container {
-          width: 100%;
-          height: 25vmin;
-          font-size: 6vw;
+        .countdown-numbers .num {
+          font-size: 36px;
+          margin: 10px 0;
         }
       }
     </style>
@@ -103,49 +64,54 @@
         <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
         <div class="countdown-numbers">
           <div class="counter">
-            <i class="fas fa-calendar-alt"></i>
             <span class="num days"></span>
             <span class="text">DAYS</span>
-</div>
-<div class="counter">
-<i class="fas fa-clock"></i>
-<span class="num hours"></span>
-<span class="text">HRS</span>
-</div>
-<div class="counter">
-<i class="fas fa-stopwatch"></i>
-<span class="num minutes"></span>
-<span class="text">MINS</span>
-</div>
-<div class="counter">
-<i class="fas fa-hourglass-end"></i>
-<span class="num seconds"></span>
-<span class="text">SECS</span>
-</div>
-</div>
-</div>
-</div>
-<script>
-const countdownDate = new Date("2023-04-15T09:00:00").getTime();
-const daysElem = document.querySelector(".days");
-const hoursElem = document.querySelector(".hours");
-const minutesElem = document.querySelector(".minutes");
-const secondsElem = document.querySelector(".seconds");
-  setInterval(() => {
-    const now = new Date().getTime();
-    const distance = countdownDate - now;
+          </div>
+          <div class="counter">
+            <span class="num hours"></span>
+            <span class="text">HOURS</span>
+          </div>
+          <div class="counter">
+            <span class="num minutes"></span>
+            <span class="text">MINUTES</span>
+          </div>
+          <div class="counter">
+            <span class="num seconds"></span>
+            <span class="text">SECONDS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+  // Set the date we're counting down to
+  var countDownDate = new Date("March 1, 2023 00:00:00").getTime();
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  // Update the count down every 1 second
+  var x = setInterval(function() {
 
-    daysElem.textContent = days;
-    hoursElem.textContent = hours;
-    minutesElem.textContent = minutes;
-    secondsElem.textContent = seconds;
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with class="countdown-numbers"
+    document.querySelector('.countdown-numbers .days').innerHTML = days;
+    document.querySelector('.countdown-numbers .hours').innerHTML = hours;
+    document.querySelector('.countdown-numbers .minutes').innerHTML = minutes;
+    document.querySelector('.countdown-numbers .seconds').innerHTML = seconds;
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector('.countdown-numbers').innerHTML = "EXPIRED";
+    }
   }, 1000);
 </script>
   </body>
