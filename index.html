@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
     <style>
       * {
         padding: 0;
@@ -45,11 +44,6 @@
         font-weight: 600;
         text-transform: uppercase;
         margin-bottom: 1em;
-      }
-      i {
-        color: #18f98f;
-        font-size: 2.5em;
-        text-align: center;
       }
       .countdown-numbers {
         display: flex;
@@ -104,23 +98,19 @@
       <div class="countdown-container">
         <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
         <div class="countdown-numbers">
-<div class="counter">
-<i class="fas fa-calendar-alt"></i>
-<span class="num days"></span>
-<span class="text">DAYS</span>
+          <div class="counter">
+            <span class="num days"></span>
+            <span class="text">DAYS</span>
+          </div>
+          <div class="counter">
+            <span class="num hours"></span>
+            <span class="text">HRS</span>
 </div>
 <div class="counter">
-<i class="fas fa-clock"></i>
-<span class="num hours"></span>
-<span class="text">HRS</span>
-</div>
-<div class="counter">
-<i class="fas fa-stopwatch"></i>
 <span class="num minutes"></span>
 <span class="text">MINS</span>
 </div>
 <div class="counter">
-<i class="fas fa-hourglass-end"></i>
 <span class="num seconds"></span>
 <span class="text">SECS</span>
 </div>
@@ -128,12 +118,11 @@
 </div>
 </div>
 <script>
-  const countdownDate = new Date("2023-04-15T09:00:00").getTime();
-  const daysElem = document.querySelector(".days");
-  const hoursElem = document.querySelector(".hours");
-  const minutesElem = document.querySelector(".minutes");
-  const secondsElem = document.querySelector(".seconds");
-  
+const countdownDate = new Date("2023-04-15T09:00:00").getTime();
+const daysElem = document.querySelector(".days");
+const hoursElem = document.querySelector(".hours");
+const minutesElem = document.querySelector(".minutes");
+const secondsElem = document.querySelector(".seconds");
   setInterval(() => {
     const now = new Date().getTime();
     const distance = countdownDate - now;
