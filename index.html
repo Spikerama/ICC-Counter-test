@@ -51,6 +51,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin: 0 1em;
       }
       .counter .num {
         color: #ffffff;
@@ -94,22 +95,23 @@
     <div class="countdown-container-wrapper">
       <div class="countdown-container">
         <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
-        <div class="counter">
-          <i class="fas fa-calendar-alt"></i>
-          <span class="num days"></span>
-          <span class="text">DAYS</span>
-        </div>
-        <div class="counter">
-          <i class="fas fa-clock"></i>
-          <span class="num hours"></span>
-          <span class="text">HOURS</span>
+        <div class="countdown-numbers">
+          <div class="counter">
+            <i class="fas fa-calendar-alt"></i>
+            <span class="num days"></span>
+            <span class="text">DAYS</span>
+          </div>
+          <div class="counter">
+            <i class="fas fa-clock"></i>
+            <span class="num hours"></span>
+            <span class="text">HOURS</span>
+          </div>
         </div>
       </div>
-    </div><
-    script>
-  // JavaScript code
-  const endDate = new Date("2023-04-15T00:00:00").getTime();
-
+    </div>
+    <script>
+      // JavaScript code
+      const endDate = new Date("2023-04-15T00:00:00").getTime();
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = endDate - now;
@@ -123,3 +125,5 @@
 
   setInterval(updateCountdown, 1000);
 </script>
+  </body>
+</html>
