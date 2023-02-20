@@ -22,14 +22,14 @@
         text-align: center;
       }
       .countdown-container {
-        width: 68vmin;
-        height: 32vmin;
+        width: 68%;
+        height: 32%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 1em 0;
-        font-size: 16px;
+        font-size: 2em;
         border-radius: 0.5em;
         background-color: #21242b;
         border-bottom: 10px solid #18f98f;
@@ -75,27 +75,26 @@
       }
       @media screen and (max-width: 1024px) {
         .countdown-container {
-          width: 26vmin;
-          height: 26vmin;
+          width: 26em;
+          height: 26em;
           font-size: 12px;
         }
       }
       @media screen and (max-width: 768px) {
         .countdown-container {
-          width: 60vw;
-          height: 30vmin;
+          width: 60%;
+          height: 30%;
           font-size: 14px;
         }
       }
       @media screen and (max-width: 480px) {
-  .countdown-container {
-    max-width: 100%;
-    width: 100%;
-    height: 25vmin;
-    font-size: 6vw;
-    }
-  }
-
+        .countdown-container {
+          max-width: 100%;
+          width: 100%;
+          height: 25%;
+          font-size: 6vw;
+        }
+      }
     </style>
   </head>
   <body>
@@ -103,16 +102,14 @@
       <div class="countdown-container">
         <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
         <div class="countdown-numbers">
-          <div class="counter">
-            <i class="fas fa-calendar-alt"></i>
-            <span class
-="num days"></span>
-            <span class="text">DAYS</span>
-          </div>
-          <div class="counter">
-            <i class="fas fa-clock"></i>
-            <span
-            class="num hours"></span>
+<div class="counter">
+<i class="fas fa-calendar-alt"></i>
+<span class="num days"></span>
+<span class="text">DAYS</span>
+</div>
+<div class="counter">
+<i class="fas fa-clock"></i>
+<span class="num hours"></span>
 <span class="text">HRS</span>
 </div>
 <div class="counter">
@@ -134,14 +131,15 @@ const daysElem = document.querySelector(".days");
 const hoursElem = document.querySelector(".hours");
 const minutesElem = document.querySelector(".minutes");
 const secondsElem = document.querySelector(".seconds");
+  setCounterSize();
+  window.addEventListener("resize", setCounterSize);
+
   setInterval(() => {
     const now = new Date().getTime();
     const distance = countdownDate - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -150,6 +148,8 @@ const secondsElem = document.querySelector(".seconds");
     minutesElem.textContent = minutes;
     secondsElem.textContent = seconds;
   }, 1000);
+</script>
+
 </script>
   </body>
 </html>
