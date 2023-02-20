@@ -92,8 +92,8 @@
   </head>
   <body>
     <div class="countdown-container-wrapper">
-      <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
       <div class="countdown-container">
+        <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
         <div class="counter">
           <i class="fas fa-calendar-alt"></i>
           <span class="num days"></span>
@@ -105,16 +105,14 @@
           <span class="text">HOURS</span>
         </div>
       </div>
-    </div>
+    </div><
+    script>
+  // JavaScript code
+  const endDate = new Date("2023-04-15T00:00:00").getTime();
 
-    <script>
-      // JavaScript code
-      const endDate = new Date("2023-04-15T00:00:
-00").getTime();
-
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = endDate - now;
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = endDate - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
