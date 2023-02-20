@@ -47,6 +47,10 @@
         font-size: 2.5em;
         text-align: center;
       }
+      .countdown-numbers {
+        display: flex;
+        justify-content: center;
+      }
       .counter {
         display: flex;
         flex-direction: column;
@@ -103,27 +107,45 @@
           </div>
           <div class="counter">
             <i class="fas fa-clock"></i>
-            <span class="num hours"></span>
-            <span class="text">HOURS</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      // JavaScript code
-      const endDate = new Date("2023-04-15T00:00:00").getTime();
-  function updateCountdown() {
+            <span
+            class="num hours"></span>
+<span class="text">HRS</span>
+</div>
+<div class="counter">
+<i class="fas fa-stopwatch"></i>
+<span class="num minutes"></span>
+<span class="text">MINS</span>
+</div>
+<div class="counter">
+<i class="fas fa-hourglass-end"></i>
+<span class="num seconds"></span>
+<span class="text">SECS</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+const countdownDate = new Date("2023-03-01T09:00:00").getTime();
+const daysElem = document.querySelector(".days");
+const hoursElem = document.querySelector(".hours");
+const minutesElem = document.querySelector(".minutes");
+const secondsElem = document.querySelector(".seconds");
+  setInterval(() => {
     const now = new Date().getTime();
-    const distance = endDate - now;
+    const distance = countdownDate - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.querySelector('.days').innerHTML = days;
-    document.querySelector('.hours').innerHTML = hours;
-  }
-
-  setInterval(updateCountdown, 1000);
+    daysElem.textContent = days;
+    hoursElem.textContent = hours;
+    minutesElem.textContent = minutes;
+    secondsElem.textContent = seconds;
+  }, 1000);
 </script>
   </body>
 </html>
