@@ -77,14 +77,17 @@
         line-height: 0;        
       }
       .countdown-copy {
-        color: #ffffff;
-        font-size: 1em;
-        text-align: center;
-        padding: 0.5em 0;
-        font-weight: 400;
-        text-transform: lowercase;
-        margin-top: 1em;
-      }
+  color: #ffffff;
+  font-size: 1em;
+  text-align: center;
+  padding: 0.5em 0;
+  font-weight: 400;
+  text-transform: lowercase;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
       @media screen and (max-width: 1024px) {
         .countdown-container {
