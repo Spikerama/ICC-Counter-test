@@ -1,172 +1,150 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ICC Arbitration Jin Cheng vs AVZ</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is my awesome counter!">
+  <meta property="og:title" content="DRC Lost Revenue Counter">
+  <meta property="og:description" content="Calculates the amount of penalties the DRC has incurred since first violation of ICC court ruling ">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Spikerama/drc-tax-loss-counter_english/main/green%20burning%20dollar%20sign.png">
+  <meta property="og:url" content="https://spikerama.github.io/drc-tax-loss-counter_english/">
+  <meta property="og:type" content="website">
+  <title>DRC Lost Revenue Counter</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background-color: #121317;
+    }
+    .wrapper {
+      position: absolute;
+      width: 80vw;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      width: 74vmin;
+      height: 36vmin;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 2em 0;
+      position: relative;
+      font-size: 16px;
+      border-radius: 0.5em;
+      background-color: #21242b;
+      border-bottom: 10px solid #18f98f;
+      margin-top: calc((100vh - 28vmin) / 2);
+    }
+    i {
+      color: #18f98f;
+      font-size: 50em;
+      text-align: center;
+    }
+    .counter {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #ffffff;
+      font-size: 3.5em;
+    }
+    .counter-value {
+      display: flex;
+      align-items: center;
+    }
+    .counter-value span:not(:last-child) {
+      margin-right: 5px;
+    }
+    span#first-line-text {
+      color: #18f98f;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.5em;
+    }
+    span.text {
+      color: #e0e0e0;
+      font-size: 1em;
+      text-align: center;
+      padding: 0.3em 0;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    @media screen and (max-width: 1024px) {
+      .wrapper {
+        width: 85vw;
       }
-      body {
-        background-color: #121317;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+      .container {
+        width: 50vw;
+        font-size: 12px;
       }
-      .countdown-container-wrapper {
-        text-align: center;
-      }
-      .countdown-container {
-        width: 68vmin;
-        height: 95vmin;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1em 0;
-        font-size: 16px;
-        border-radius: 0.5em;
-        background-color: #21242b;
-        border-bottom: 10px solid #18f98f;
-      }
-      .countdown-header {
-        color: #18f98f;
-        font-size: 1.2em;
-        text-align: center;
-        padding: 0.5em 0;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 1em;
-      }
-      i {
-        color: #18f98f;
-        font-size: 2.5em;
-        text-align: center;
-      }
-      .countdown-numbers {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    }
+    @media screen and (max-width: 768px) {
+      .wrapper {
+        width: 100%;
         flex-wrap: wrap;
+        gap: 30px;
+        height: auto;
       }
-      .counter {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0 1em;
-      }
-      .counter .num {
-        color: #ffffff;
-        display: grid;
-        place-items: center;
-        font-weight: 600;
-        font-size: 5em;
-        margin-bottom: -0.1em;
-      }
-      .counter .text {
-        color: #ffffff;
-        font-size: 1em;
-        text-align: center;
-        padding: 1em;
-        font-weight: 400;
-        line-height: 0;        
-      }
-      .countdown-copy {
-  color: #ffffff;
-  font-size: 1em;
-  text-align: center;
-  padding: 0.5em 0;
-  font-weight: 400;
-  text-transform: lowercase;
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-      @media screen and (max-width: 1024px) {
-        .countdown-container {
-          width: 26vmin;
-          height: 26vmin;
-          font-size: 12px;
-        }
-      }
-      @media screen and (max-width: 768px) {
-        .countdown-container {
-          width: 60vw;
-          height: 80vh;
+      .container {
+        width: 100%;
+        height: auto;
           font-size: 14px;
         }
-      }
-      @media screen and (max-width: 480px) {
-        .countdown-container {
-          width: 100%;
-          height: 100%;
-          font-size: 6vw;
-          border-radius: 0;
-          border: none;
+        i {
+          font-size: 40em;
         }
-        .countdown-container-wrapper {
-          padding: 0.5em;
-        }
-        .countdown-title {
-          margin-top: 0px;
+        .counter {
+          font-size: 2em;
         }
       }
     </style>
-  </head>  
+  </head>
   <body>
-    <div class="countdown-container-wrapper">
-      <div class="countdown-container">
-  <div class="countdown-header">ZIJIN vs AVZ @ ICC ARBITRATION</div>
-  <div class="countdown-numbers">
-          <div class="counter">
-            <i class="fas fa-calendar-alt"></i>
-            <span class="num days"></span>
-            <span class="text">DAYS</span>
-          </div>
-          <div class="counter">
-            <i class="fas fa-clock"></i>
-            <span class="num hours"></span>
-            <span class="text">HOURS</span>
-          </div>
-          <div class="counter">
-            <span class="num minutes"></span>
-            <span class="text">MINS</span>
-          </div>
-          <div class="counter">
-            <span class="num seconds"></span>
-            <span class="text">SECS</span>
+    <div class="wrapper">
+      <div class="container">
+        <i class="fas fa-dollar-sign"></i>
+        <span id="first-line-text">DRC PENALTIES FROM ICC VIOLATION  </span>
+        <div class="counter">
+          <div class="counter-value">
+            <span>$</span><span id="count">0</span><span>+</span>
           </div>
         </div>
-      </div>
-    </div>
-    <script>
-      const countdownDate = new Date("2023-04-15T09:00:00").getTime();
-      const daysElem = document.querySelector(".days");
-      const hoursElem = document.querySelector(".hours");
-      const minutesElem = document.querySelector(".minutes");
-      const secondsElem = document.querySelector(".seconds");
-      setInterval(() => {
-        const now = new Date().getTime();
-        const distance = countdownDate - now;
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        <span class="text">Based on first violation of ICC’s Emergency Arbitrator’s Order, in relation to Dathcom JVA, 5 May 2023 . Penalty set at EUR $50K until resolved.
 
-    daysElem.textContent = days < 10 ? `0${days}` : days;
-    hoursElem.textContent = hours < 10 ? `0${hours}` : hours;
-    minutesElem.textContent = minutes < 10 ? `0${minutes}` : minutes;
-    secondsElem.textContent = seconds < 10 ? `0${seconds}` : seconds;
-  }, 1000);
-</script>
-  </body>
+	<script>
+	// set start date as May 11, 2023
+	const startDate = new Date("May 11, 2023 00:00:00");
+
+	// set the amount to accrue per day in EUR
+	const amountPerDay = 50000;
+
+	function updateCounter() {
+	  // calculate the number of seconds elapsed since the start date
+	  const elapsedSeconds = Math.floor((new Date() - startDate) / 1000);
+
+	  // calculate the total amount accrued
+	  const totalAmount = elapsedSeconds * amountPerDay / (60 * 60 * 24);
+
+	  // update the counter value
+	  const countElement = document.getElementById("count");
+	  countElement.textContent = totalAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+	}
+
+	// update the counter every second
+	setInterval(updateCounter, 1000);
+	</script>
+</body>
 </html>
